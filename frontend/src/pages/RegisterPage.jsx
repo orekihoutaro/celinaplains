@@ -14,7 +14,7 @@ function RegisterPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:3000/signup', { email, password, fullname, address, isAdmin })
+    axios.post('https://celinaplains-api.onrender.com/signup', { email, password, fullname, address, isAdmin })
       .then(response => {
         console.log(response.data);
         alert("Successfully registered!");

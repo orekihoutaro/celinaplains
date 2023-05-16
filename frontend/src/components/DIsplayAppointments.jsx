@@ -13,7 +13,7 @@ const DisplayAppointments = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/get-appointments');
+      const response = await axios.get('https://celinaplains-api.onrender.com/get-appointments');
       setAppointments(response.data);
     } catch (error) {
       console.error('Error fetching appointments:', error);
@@ -23,10 +23,10 @@ const DisplayAppointments = () => {
   const handleMakeAsDone = async (appointmentId, email, phoneNumber, appointmentTime, message) => {
     try {
       // Delete the appointment from the "appointments" collection
-      await axios.delete(`http://localhost:3000/delete-appointment/${appointmentId}`);
+      await axios.delete(`https://celinaplains-api.onrender.com/delete-appointment/${appointmentId}`);
 
       // Move the appointment to a different collection (e.g., "done-appointments")
-      await axios.post('http://localhost:3000/move-appointment', {
+      await axios.post('https://celinaplains-api.onrender.com/move-appointment', {
         appointmentId,
         email,
         phoneNumber,

@@ -28,7 +28,7 @@ const NewsFeedUploader = () => {
 
     try {
       const idToken = await auth.currentUser.getIdToken();
-      const response = await axios.post('http://localhost:3000/upload-news-feed', {
+      const response = await axios.post('https://celinaplains-api.onrender.com/upload-news-feed', {
         postTitle,
         postCaption,
         imageBase64,

@@ -10,7 +10,7 @@ const AppointmentForm = () => {
 const handleSubmit = async (event) => {
   event.preventDefault();
 
-  const apiUrl = 'http://localhost:3000/make-appointment';
+  const apiUrl = 'https://celinaplains-api.onrender.com/make-appointment';
 
   try {
     const response = await axios.post(apiUrl, {

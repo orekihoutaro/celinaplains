@@ -14,7 +14,7 @@ const NewsFeedPage = () => {
   
     const fetchNewsFeed = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/news-feed');
+        const response = await axios.get('https://celinaplains-api.onrender.com/news-feed');
         setNewsFeed(response.data);
       } catch (error) {
         console.error('Error fetching news feed:', error);
