@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+@import url('https://fonts.cdnfonts.com/css/roboto');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    150.5deg,
+    #2584c4 0.89%,
+    #437de8 17.23%,
+    #707bdc 42.04%,
+    #5074d1 55.12%,
+    #77a5e5 71.54%,
+    #2d6bd6 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
