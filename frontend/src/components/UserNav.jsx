@@ -48,7 +48,6 @@ const DashboardNav = () => {
                   <Nav.Link href="/login">Login</Nav.Link>
                 )}
                 <Nav.Link href="/appointment">Book an Appointment</Nav.Link>
-                <Nav.Link href="/contribution">Contribution</Nav.Link>
             </Nav>
             <Nav>
               {user ? (

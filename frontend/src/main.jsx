@@ -80,10 +80,6 @@ const router = createBrowserRouter(
       path: "/editdues",
       element: <EditMonthlyDuesPage />,
     },
-    {
-      path: "/contribution",
-      element: <UserEditDuesPage />,
-    },
   ]
 );
 
