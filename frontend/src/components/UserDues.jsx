@@ -87,7 +87,7 @@ const UserDues = () => {
           ))}
         </tbody>
       </table>
-    </div>
+  </div>
 );
 };
 
