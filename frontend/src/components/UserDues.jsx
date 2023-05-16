@@ -52,10 +52,11 @@ const UserDues = () => {
     );
   }
 
-  const getMonthName = (monthNumber) => {
+  const getMonthName = (monthNumber, amount) => {
     const date = new Date();
     date.setMonth(monthNumber - 1);
-    return date.toLocaleString('default', { month: 'long' });
+    const monthName = date.toLocaleString('default', { month: 'long' });
+    return amount ? monthName : 'Unpaid';
   };
 
   const sortedMonths = Object.entries(monthlyDues).sort(
@@ -68,15 +69,26 @@ const UserDues = () => {
       <button onClick={handleReload} className="px-4 py-2 mb-4 text-white bg-blue-500 rounded-md shadow-md">
         Load Monthly Dues
       </button>
-      <ul className="pl-6 list-disc">
-        {sortedMonths.map(([month, amount]) => (
-          <li key={month} className="text-lg">
-            {getMonthName(parseInt(month))}: {amount}
-          </li>
-        ))}
-      </ul>
+      <table className="w-full border-collapse table-auto">
+        <thead>
+          <tr>
+            <th className="px-4 py-2 font-medium text-gray-600 border border-gray-500">Month</th>
+            <th className="px-4 py-2 font-medium text-gray-600 border border-gray-500">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedMonths.map(([month, amount]) => (
+            <tr key={month}>
+              <td className="px-4 py-2 text-gray-600 border border-gray-500">
+                {getMonthName(parseInt(month), amount)}
+              </td>
+              <td className="px-4 py-2 border-gray-500 text-gray-600border">{amount}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  );
+);
 };
 
 export default UserDues;
