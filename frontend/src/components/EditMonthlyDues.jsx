@@ -8,26 +8,24 @@ const EditMonthlyDues = ({ userId }) => {
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    // Initialize Firebase app (assuming you've already done this)
     const db = app.firestore();
 
-    // Fetch the monthly dues data from Firestore for the specified user
     db.collection('users')
       .doc(userId)
       .get()
-      .then(doc => {
+      .then((doc) => {
         if (doc.exists) {
           setMonthlyDues(doc.data().duesByDate || {});
         }
         setIsLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error fetching monthly dues:', error);
       });
   }, [userId]);
 
   const handleInputChange = (month, value) => {
-    setMonthlyDues(prevMonthlyDues => ({
+    setMonthlyDues((prevMonthlyDues) => ({
       ...prevMonthlyDues,
       [month]: value,
     }));
@@ -36,7 +34,6 @@ const EditMonthlyDues = ({ userId }) => {
   const handleSave = () => {
     setIsSaving(true);
 
-    // Update the monthly dues data in Firestore for the specified user
     const db = app.firestore();
     db.collection('users')
       .doc(userId)
@@ -45,7 +42,7 @@ const EditMonthlyDues = ({ userId }) => {
         setIsSaving(false);
         console.log('Monthly dues updated successfully.');
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error updating monthly dues:', error);
         setIsSaving(false);
       });
@@ -54,51 +51,58 @@ const EditMonthlyDues = ({ userId }) => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
-      <motion.div
-        className="w-16 h-16 border-4 border-t-4 border-gray-200 rounded-full animate-spin"
-        style={{ borderTopColor: '#4F46E5' }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-      />
-    </div>
+        <motion.div
+          className="w-16 h-16 border-4 border-t-4 border-gray-200 rounded-full animate-spin"
+          style={{ borderTopColor: '#4F46E5' }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+        />
+      </div>
     );
   }
+
+  const renderMonths = (start, end) => {
+    return Array.from({ length: end - start + 1 }).map((_, index) => {
+      const monthNumber = (start + index).toString().padStart(2, '0');
+      const month = new Date(2022, start + index - 1).toLocaleString('default', { month: 'long' });
+      const value = monthlyDues[monthNumber] || '';
+
+      return (
+        <div key={month} className="mb-4">
+          <label className="block mb-2 font-medium text-gray-600">{month}</label>
+          <input
+            type="number"
+            value={value}
+            inputMode="numeric"
+            onChange={(e) => handleInputChange(monthNumber, e.target.value)}
+            className="w-1/4 px-4 py-2 text-gray-600 border-2 border-gray-300 rounded-md hover:border-blue-600 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+      );
+    });
+  };
 
   return (
     <div className="container px-4 pb-8 pt-[100px] mx-auto">
       <h2 className="mb-4 text-lg font-medium text-gray-600">Edit Monthly Dues</h2>
       <div className="p-6 bg-white rounded-lg shadow-md">
         <form>
-          {Array.from({ length: 12 }).map((_, index) => {
-            const monthNumber = (index + 1).toString().padStart(2, '0');
-            const month = new Date(2022, index).toLocaleString('default', { month: 'long' });
-            const value = monthlyDues[monthNumber] || '';
-
-            return (
-              <div key={month} className="mb-4">
-                <label className="block mb-2 font-medium text-gray-600">{month}</label>
-                  <input
-                    type="number"
-                    value={value}
-                    inputMode="numeric"
-                    onChange={e => handleInputChange(monthNumber, e.target.value)}
-                    className="w-1/4 px-4 py-2 text-gray-600 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-              </div>
-            );
-          })}
+          <div className="grid grid-cols-2 gap-4">
+            <div>{renderMonths(1, 6)}</div>
+            <div>{renderMonths(7, 12)}</div>
+          </div>
           <button
             type="button"
             onClick={handleSave}
             disabled={isSaving}
             className="px-4 py-2 text-white bg-blue-500 rounded-md shadow-md"
-          >
-            {isSaving ? 'Saving...' : 'Save Changes'}
-          </button>
+            >
+              {isSaving ? 'Saving...' : 'Save Changes'}
+            </button>
         </form>
       </div>
     </div>
-  );
+);
 };
 
 export default EditMonthlyDues;

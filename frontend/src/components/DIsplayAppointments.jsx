@@ -44,31 +44,45 @@ const DisplayAppointments = () => {
 
   return (
     <Suspense fallback={<Loader />}>
-      <div className='bg-white drop-shadow-2xl p-8 h-screen'>
-        <h1 className="font-poppins font-semibold text-5xl">Appointments</h1>
+      <div className='h-screen p-8 bg-white drop-shadow-2xl'>
+        <h1 className="text-5xl font-semibold font-poppins">Appointments</h1>
         {appointments.length === 0 ? (
           <p>No appointments found.</p>
         ) : (
-          <ul className="pt-4 z-10">
-            {appointments.map((appointment) => (
-              <li key={appointment.id}
+          <div className="pt-4 z-10 overflow-y-auto rounded-lg max-h-[calc(100vh-200px)]">
+            <ul>
+              {appointments.map((appointment) => (
+                <li
+                  key={appointment.id}
                   className="pb-6"
-              >
-                <strong>Email:</strong> {appointment.email}
-                <br />
-                <strong>Phone Number:</strong> {appointment.phoneNumber}
-                <br />
-                <strong>Date/Time:</strong> {appointment.appointmentTime}
-                <br />
-                <strong>Message:</strong> {appointment.message}
-                <hr />
-                <button type="submit" 
-                  className="p-1 my-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-blue-500"
-                  onClick={() => handleMakeAsDone(appointment.id, appointment.email, appointment.phoneNumber, appointment.appointmentTime, appointment.message)}
-                >Make as Done</button>
-              </li>
-            ))}
-          </ul>
+                >
+                  <strong>Email:</strong> {appointment.email}
+                  <br />
+                  <strong>Phone Number:</strong> {appointment.phoneNumber}
+                  <br />
+                  <strong>Date/Time:</strong> {appointment.appointmentTime}
+                  <br />
+                  <strong>Message:</strong> {appointment.message}
+                  <hr />
+                  <button
+                    type="submit"
+                    className="p-1 my-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-blue-500"
+                    onClick={() =>
+                      handleMakeAsDone(
+                        appointment.id,
+                        appointment.email,
+                        appointment.phoneNumber,
+                        appointment.appointmentTime,
+                        appointment.message
+                      )
+                    }
+                  >
+                    Make as Done
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </Suspense>
