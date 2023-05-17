@@ -3,6 +3,7 @@ import DashboardNav from '../components/DashboardNav';
 import DisplayAppointments from '../components/DIsplayAppointments';
 import NewsFeed from '../components/NewsFeed';
 import bg from "../assets/bg-1.jpg"
+import { motion } from "framer-motion"
 
 /**
  * The function returns a JSX element representing a dashboard page with a navigation bar, appointments
@@ -16,7 +17,15 @@ import bg from "../assets/bg-1.jpg"
 function DashboardPage() {
 
   return (
-    <div className="flex h-full overflow-hidden bg-cover font-poppins bg-background1">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        type: "fade",
+        delay: "0.5",
+        duration: "1.4"
+      }}
+      className="flex h-full overflow-hidden bg-cover font-poppins bg-background1">
       <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
       <DashboardNav />
       <div className="pt-[80px]">
@@ -25,7 +34,7 @@ function DashboardPage() {
           <NewsFeed />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
