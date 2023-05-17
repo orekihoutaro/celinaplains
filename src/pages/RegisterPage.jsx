@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/celina.png';
+import bg from "../assets/bg-1.jpg";
+import { motion } from "framer-motion";
 
 function RegisterPage() {
   const [email, setEmail] = useState('');
@@ -26,7 +28,16 @@ function RegisterPage() {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center w-screen h-screen font-medium align-middle bg-cover bg-background1 text-slate-800 font-poppins'>
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        type: "fade",
+        delay: "0.5",
+        duration: "1.2"
+      }}
+      className='flex flex-col items-center justify-center w-screen h-screen font-medium align-middle bg-cover bg-background1 text-slate-800 font-poppins'>
+    <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
     <Navbar />
     <div className="justify-center">      
       <form onSubmit={handleSubmit} 
@@ -103,7 +114,7 @@ function RegisterPage() {
       </form>
 
     </div>
-    </div>
+    </motion.div>
   );
 }
 

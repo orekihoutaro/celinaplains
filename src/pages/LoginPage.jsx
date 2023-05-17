@@ -4,7 +4,7 @@ import logo from '../assets/celina.png';
 import { auth, app } from '../auth';
 import { useEffect } from 'react';
 import bg from "../assets/bg-1.jpg"
-
+import { motion } from "framer-motion"
 
 /* This is a functional component in JavaScript using React. It defines a login page with a form that
 takes in an email and password, and a button to submit the form. It also includes error handling for
@@ -65,7 +65,15 @@ function LoginPage() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen font-medium align-middle text-slate-800 font-poppins">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        type: "fade",
+        delay: "0.5",
+        duration: "1.2"
+      }}
+      className="flex flex-col items-center justify-center w-screen h-screen font-medium align-middle text-slate-800 font-poppins">
       <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
       <Navbar />
       <form onSubmit={handleSignIn} className="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded-2xl drop-shadow-2xl">
@@ -102,7 +110,7 @@ function LoginPage() {
       <p className="text-white drop-shadow-2xl">
         Don't have an account? <a className="" href="/register">Register here!</a>
       </p>
-    </div>
+    </motion.div>
   );
 }
 
