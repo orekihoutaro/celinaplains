@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="absolute top-[350%] w-full bg-white text-black font-poppins">
+    <footer className="absolute top-[233%] w-full bg-white text-black font-poppins">
       <div className="container py-2">
         <div className="row">
           <div className="col-md-4">
@@ -10,7 +10,7 @@ const Footer = () => {
             <h3 className="mb-4">Celina Plains Subdivision</h3>
           </div>
           <div className="col md-4">
-            <h5 className="col mb-4">Quick Links</h5>
+            <h5 className="mb-4 col">Quick Links</h5>
             <ul className="list-unstyled">
               <li><a href="/">Home</a></li>
               <li><a href="/#about">About Us</a></li>
@@ -19,7 +19,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-blue-400 text-center py-3">
+      <div className="py-3 text-center bg-blue-400">
         <p className="mb-0">&copy; {new Date().getFullYear()} Celina Plains Subdivision. All rights reserved.</p>
       </div>
     </footer>
