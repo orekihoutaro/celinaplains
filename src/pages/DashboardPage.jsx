@@ -25,7 +25,7 @@ function DashboardPage() {
         delay: "0.5",
         duration: "1.4"
       }}
-      className="flex h-full overflow-hidden bg-cover font-poppins bg-background1">
+      className="flex h-full overflow-hidden font-poppins">
       <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
       <DashboardNav />
       <div className="pt-[80px]">

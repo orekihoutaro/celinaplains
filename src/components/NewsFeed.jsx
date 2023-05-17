@@ -26,21 +26,23 @@ const NewsFeed = () => {
   };
 
   return (
-    <div className="z-40 w-full p-8 mx-10 bg-white rounded-2xl">
+    <div className="z-40 w-full p-8 mx-10 bg-white rounded-2xl h-[900px] overflow-y-auto">
       <span className='text-2xl font-semibold font-poppins'>
         Celina Plains Imus<br/>
       </span>
       <h1 className="mb-4 text-2xl font-bold">News Feed</h1>
       {newsFeed.map((item) => (
         <div key={item.id} className="mb-4">
-          <h2 className="text-lg font-bold">{item.postTitle}</h2>
-          <p className="text-gray-500">{item.postCaption}</p>
-          
           {item.data && (
             <img src={item.data} alt="News Feed" className="rounded-xl mt-2 w-[512px]" />
           )}
+          <div>
+            <h2 className="text-lg font-bold">{item.postTitle}</h2>
+            <p className="text-gray-500">{item.postCaption}</p>
+          </div>
         </div>
       ))}
+
     </div>
   )
 }
