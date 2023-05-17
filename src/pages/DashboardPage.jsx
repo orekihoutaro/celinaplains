@@ -2,7 +2,7 @@ import React from 'react';
 import DashboardNav from '../components/DashboardNav';
 import DisplayAppointments from '../components/DIsplayAppointments';
 import NewsFeed from '../components/NewsFeed';
-
+import bg from "../assets/bg-1.jpg"
 
 /**
  * The function returns a JSX element representing a dashboard page with a navigation bar, appointments
@@ -17,6 +17,7 @@ function DashboardPage() {
 
   return (
     <div className="flex h-full overflow-hidden bg-cover font-poppins bg-background1">
+      <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
       <DashboardNav />
       <div className="pt-[80px]">
         <div className="flex flex-row justify-around px-[200px]">
