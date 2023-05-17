@@ -5,8 +5,8 @@ import celina from '../assets/celina-bg.jpg'
 
 const Hero = () => {
   return (
-    <div className=" ">
-      <img src={celina} alt="celina" draggable="false" className="w-screen fixed -z-50 blur-sm" autoPlay loop/>
+    <div className="">
+      <img src={celina} alt="celina" draggable="false" className="fixed w-screen bg-cover -z-50 blur-sm"/>
       <motion.div
         initial={{ y: "-50vw" }}
         animate={{ y:0 }}
@@ -19,12 +19,12 @@ const Hero = () => {
         initial={{ x: "-50vw"}}
         animate={{ x:0 }}
         transition={{ type: "spring", stiffness: 40, delay: 0.4}}
-        className="absolute top-[290px] left-[45px] text-[128px] font-poppins font-semibold text-blue-500 drop-shadow-2xl">C E L I N A</motion.h1>
+        className="absolute top-[290px] left-[45px] text-[128px] font-poppins font-semibold text-blue-500 drop-shadow-2xl xs:text-2xl">C E L I N A</motion.h1>
       <motion.h1 
           initial={{ y: "150vw"}}
           animate={{ y:0 }}
           transition={{ type: "spring", stiffness: 40, delay: 0.4}}
-          className="absolute top-[390px] left-[195px] text-[64px] font-poppins font-semibold text-white drop-shadow-2xl z-30">P L A I N S</motion.h1>
+          className="absolute top-[390px] left-[195px] text-[64px] font-poppins font-semibold text-white drop-shadow-2xl xs:text-xl z-30">P L A I N S</motion.h1>
       <motion.p 
         initial={{ opacity: 0}}
         animate={{ opacity: 1 }}

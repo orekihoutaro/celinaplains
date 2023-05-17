@@ -6,14 +6,14 @@ import NewsFeed from './NewsFeed';
 const About = () => {
   return (
     <section id="about" className="absolute top-[800px] bg-white w-full object-fill flex flex-col">
-        <div className="flex flex-row">
+        <div className="flex flex-row md:flex-col">
             <div className="flex flex-col gap-4 p-8">
                 <motion.div
                     initial={{ x: "150vw" }}
                     animate={{ x:0 }}
                     whileInView="show"
                     transition={{ type: "spring", stiffness: 60, delay: 0.4}}
-                    className="flex flex-col justify-start pl-10 font-poppins font-semibold text-black"
+                    className="flex flex-col justify-start pl-10 font-semibold text-black font-poppins"
                     >
                     <span>
                         <h1 className="text-3xl"><br/>Welcome to Celina Plains Subdivision, where peaceful living begins! </h1>
@@ -26,7 +26,7 @@ const About = () => {
                     animate={{ x:0 }}
                     whileInView="show"
                     transition={{ type: "spring", stiffness: 40, delay: 0.4}}
-                    className="flex flex-col justify-start pl-10 font-poppins font-semibold text-black"
+                    className="flex flex-col justify-start pl-10 font-semibold text-black font-poppins"
                     >
                     <span>
                         <br/>Our community is located in a prime location, with easy access to schools, hospitals, and shopping centers. 
@@ -38,7 +38,7 @@ const About = () => {
                     animate={{ x:0 }}
                     whileInView="show"
                     transition={{ type: "spring", stiffness: 40, delay: 0.4}}
-                    className="flex flex-col justify-start pl-10 font-poppins font-semibold text-black"
+                    className="flex flex-col justify-start pl-10 font-semibold text-black font-poppins"
                     >
                     <span>
                     At Celina Plains, we take pride in our commitment to creating a safe and secure environment for our residents. We have a dedicated security team that works around the clock to ensure the safety of our community. We also have a strict set of rules and regulations that help maintain the tranquility of our surroundings.
@@ -49,7 +49,7 @@ const About = () => {
                     animate={{ x:0 }}
                     whileInView="show"
                     transition={{ type: "spring", stiffness: 40, delay: 0.4}}
-                    className="flex flex-col justify-start pl-10 font-poppins font-semibold text-black"
+                    className="flex flex-col justify-start pl-10 font-semibold text-black font-poppins"
                     >
                     <span>
                     We offer a wide range of amenities to our residents, including a swimming pool, playground, and basketball court. We also have a clubhouse that is perfect for hosting events and social gatherings.
@@ -62,9 +62,9 @@ const About = () => {
                     animate={{ x:0 }}
                     whileInView="show"
                     transition={{ type: "spring", stiffness: 40, delay: 0.4}}
-                    className="flex flex-col justify-start pl-10 font-poppins font-semibold p-4 text-black"
+                    className="flex flex-col justify-start p-4 pl-10 font-semibold text-black font-poppins"
                     >
-                    <h1 className="font-poppins text-black py-8 text-3xl">Find us here </h1>
+                    <h1 className="py-8 text-3xl text-black font-poppins">Find us here </h1>
                     <iframe src="https://www.google.com/maps/d/u/7/embed?mid=1rSKTnKNq9Kuo62S8eeERRZf2f0pTW5c&ehbc=2E312F" width="640" height="480"></iframe>
                 </motion.div>
             </div>
