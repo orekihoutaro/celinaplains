@@ -16,7 +16,7 @@ const MonthlyDuesDisplay = () => {
       .then(querySnapshot => {
         const duesData = [];
         querySnapshot.forEach(doc => {
-          const { userFullname, duesByDate } = doc.data();
+          const { userFullname, address, duesByDate } = doc.data();
           const formattedDuesByDate = Object.entries(duesByDate || {}).reduce((acc, [month, value]) => {
             const monthName = getMonthName(month);
             acc[monthName] = value;
@@ -25,6 +25,7 @@ const MonthlyDuesDisplay = () => {
           duesData.push({
             id: doc.id,
             userFullname,
+            address,
             duesByDate: formattedDuesByDate,
           });
         });
@@ -45,13 +46,13 @@ const MonthlyDuesDisplay = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
-      <motion.div
-        className="w-16 h-16 border-4 border-t-4 border-gray-200 rounded-full animate-spin"
-        style={{ borderTopColor: '#4F46E5' }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-      />
-    </div>
+        <motion.div
+          className="w-16 h-16 border-4 border-t-4 border-gray-200 rounded-full animate-spin"
+          style={{ borderTopColor: '#4F46E5' }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+        />
+      </div>
     );
   }
 
@@ -61,6 +62,7 @@ const MonthlyDuesDisplay = () => {
         <thead>
           <tr>
             <th className="px-4 py-2 font-medium text-gray-600 border border-gray-500">User</th>
+            <th className="px-4 py-2 font-medium text-gray-600 border border-gray-500">Address</th>
             {[...Array(12)].map((_, i) => {
               const month = getMonthName(i + 1);
               return (
@@ -72,24 +74,25 @@ const MonthlyDuesDisplay = () => {
           </tr>
         </thead>
         <tbody>
-          {dues.map(({ id, userFullname, duesByDate }) => (
+          {dues.map(({ id, userFullname, address, duesByDate }) => (
             <tr key={id}>
               <td className="px-4 py-2 text-gray-600 border border-gray-500">{userFullname}</td>
+              <td className="px-4 py-2 text-gray-600 border border-gray-500">{address}</td>
               {[...Array(12)].map((_, i) => {
                 const month = getMonthName(i + 1);
                 const monthlyDue = duesByDate[month] || 0;
                 return (
                   <td key={i} className="px-4 py-2 text-gray-600 border border-gray-500">
-                    ₱{monthlyDue}
+                  ₱{monthlyDue}
                   </td>
                 );
               })}
             </tr>
           ))}
         </tbody>
-      </table>
-    </div>
-  );
+        </table>
+      </div>
+);
 };
-
+                  
 export default MonthlyDuesDisplay;
