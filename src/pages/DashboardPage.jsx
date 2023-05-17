@@ -25,11 +25,12 @@ function DashboardPage() {
         delay: "0.5",
         duration: "1.4"
       }}
-      className="flex h-full overflow-hidden font-poppins">
+      className="flex h-full font-poppins"
+      style={{ overflow: "hidden" }}>
       <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
       <DashboardNav />
       <div className="pt-[80px]">
-        <div className="flex flex-row justify-around px-[200px]">
+        <div className="flex flex-row overflow-hidden justify-around px-[200px]">
           <DisplayAppointments />
           <NewsFeed />
         </div>
