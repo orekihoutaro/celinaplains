@@ -65,8 +65,8 @@ function LoginPage() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen font-medium align-middle bg-cover bg-background1 text-slate-800 font-poppins">
-      <img src={bg} alt="Background Image" className="bg-cover"/>
+    <div className="flex flex-col items-center justify-center w-screen h-screen font-medium align-middle text-slate-800 font-poppins">
+      <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
       <Navbar />
       <form onSubmit={handleSignIn} className="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded-2xl drop-shadow-2xl">
         <div className="flex">
