@@ -40,7 +40,7 @@ const NewsFeedUploader = () => {
     });
 
       console.log('News feed uploaded successfully:', response.data);
-      window.location.href = '/dashboard';
+      window.location.href = '/';
       // Reset form fields
       setPostTitle('');
       setPostCaption('');
@@ -53,8 +53,8 @@ const NewsFeedUploader = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg p-8 drop-shadow-2xl max-w-sm mx-auto mt-8">
-      <h1 className="text-2xl font-bold mb-4">Upload News Feed</h1>
+    <div className="max-w-sm p-8 mx-auto mt-8 bg-white rounded-lg drop-shadow-2xl">
+      <h1 className="mb-4 text-2xl font-bold">Upload News Feed</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="postTitle" className="block mb-1 font-bold">
@@ -96,15 +96,15 @@ const NewsFeedUploader = () => {
         <button
           type="submit"
           disabled={uploading}
-          className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
         >
           {uploading ? 'Uploading...' : 'Upload'}
         </button>
       </form>
       {imageBase64 && (
         <div className="mt-4">
-          <h2 className="text-lg font-bold mb-2">Preview:</h2>
-          <img src={imageBase64} alt="Preview" className="max-w-full h-auto" />
+          <h2 className="mb-2 text-lg font-bold">Preview:</h2>
+          <img src={imageBase64} alt="Preview" className="h-auto max-w-full" />
         </div>
       )}
     </div>
