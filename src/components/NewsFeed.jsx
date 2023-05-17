@@ -26,7 +26,7 @@ const NewsFeed = () => {
   };
 
   return (
-    <div className="w-full p-8 mx-10 bg-white rounded-2xl">
+    <div className="z-40 w-full p-8 mx-10 bg-white rounded-2xl">
       <span className='text-2xl font-semibold font-poppins'>
         Celina Plains Imus<br/>
       </span>
