@@ -44,7 +44,7 @@ const handleSubmit = async (event) => {
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border-2 border-blue-300 rounded-md hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <div>
@@ -57,7 +57,7 @@ const handleSubmit = async (event) => {
             value={phoneNumber}
             onChange={(event) => setPhoneNumber(event.target.value)}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border-2 border-blue-300 rounded-md hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <div>
@@ -70,7 +70,7 @@ const handleSubmit = async (event) => {
             value={            appointmentTime}
             onChange={(event) => setAppointmentTime(event.target.value)}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border-2 border-blue-300 rounded-md hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <div>
@@ -82,12 +82,12 @@ const handleSubmit = async (event) => {
               value={message}
               onChange={(event) => setMessage(event.target.value)}
               rows="4"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border-2 border-blue-300 rounded-md hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </div>
         <button
           type="submit"
-          className="w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded-md hover:border-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
         >
           Submit
         </button>

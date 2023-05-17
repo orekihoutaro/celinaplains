@@ -1,6 +1,8 @@
 import React from 'react'
 import AppointmentForm from '../components/AppointmentForm'
 import DashboardNav from '../components/DashboardNav'
+import bg from "../assets/bg-1.jpg"
+import { motion } from "framer-motion"
 
 /**
  * The Appointment function returns a JSX element that displays a background image, a navigation bar,
@@ -12,12 +14,21 @@ import DashboardNav from '../components/DashboardNav'
  */
 const Appointment = () => {
   return (
-    <div className='h-full bg-cover bg-background1'>
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          type: "fade",
+          delay: "0.5",
+          duration: "1.4"
+        }}
+    >
+        <img src={bg} alt="Background Image" className="absolute w-screen h-full bg-cover"/>
         <DashboardNav />
         <div className="pt-[100px] flex justify-center">
             <AppointmentForm />
         </div>
-    </div>
+    </motion.div>
   )
 }
 
