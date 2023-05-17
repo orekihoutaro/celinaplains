@@ -5,7 +5,7 @@ import NewsFeed from './NewsFeed';
 
 const About = () => {
   return (
-    <section id="about" className="absolute top-[800px] bg-white w-full object-fill flex flex-col">
+    <section id="about" className="absolute top-[800px] bg-white xs:bg-transparent w-screen object-fill flex flex-col">
         <div className="flex flex-row md:flex-col">
             <div className="flex flex-col gap-4 p-8">
                 <motion.div
