@@ -2,13 +2,6 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-/* This is a functional component in JavaScript React that fetches and displays a news feed from a
-local server. It uses the `useState` and `useEffect` hooks to manage state and perform side effects
-respectively. The `fetchNewsFeed` function is an asynchronous function that uses the `axios` library
-to make a GET request to the local server and sets the response data to the `newsFeed` state using
-the `setNewsFeed` function. The component then returns a JSX element that displays the news feed
-data using the `map` function to iterate over the `newsFeed` array and display each item's
-`postTitle`, `postCaption`, and `data` (if it exists) in a styled HTML element. */
 const NewsFeed = () => {
   const [newsFeed, setNewsFeed] = useState([]);
 
@@ -26,7 +19,7 @@ const NewsFeed = () => {
   };
 
   return (
-    <div className="w-full p-8 mx-10 overflow-x-auto bg-white rounded-2xl drop-shadow-2xl">
+    <div className="w-full p-8 mx-2 overflow-x-auto bg-white md:w-4/5 lg:w-2/3 sm:mx-6 md:mx-10 rounded-2xl drop-shadow-2xl">
       <span className='text-2xl font-semibold font-poppins'>
         Celina Plains Imus<br/>
       </span>
@@ -37,7 +30,7 @@ const NewsFeed = () => {
           <p className="text-gray-500">{item.postCaption}</p>
           
           {item.data && (
-            <img src={item.data} alt="News Feed" className="rounded-xl mt-2 w-[512px]" />
+            <img src={item.data} alt="News Feed" className="rounded-xl mt-2 w-full md:w-[512px]" />
           )}
         </div>
       ))}

@@ -24,13 +24,13 @@ const NewsFeedPage = () => {
     <Suspense fallback={<Loader />}>
         <Navbar />
         <div className="flex flex-col bg-background1 bg-cover pt-[100px] px-10">
-            <span className='font-poppins font-semibold text-2xl text-white'>
+            <span className='text-2xl font-semibold text-white font-poppins'>
                 Celina Plains Imus<br/>
             </span>
-            <div className="bg-white p-2 w-1/4">
-            <h1 className="text-2xl font-bold mb-4">News Feed</h1>
+            <div className="w-3/4 p-2 bg-white">
+            <h1 className="mb-4 text-2xl font-bold">News Feed</h1>
             {newsFeed.map((item) => (
-                <div key={item.id} className="mb-4">
+                <div key={item.id} className="flex mb-4">
                 <h2 className="text-lg font-bold">{item.postTitle}</h2>
                 <p className="text-gray-500">{item.postCaption}</p>
                 <p className="text-gray-500">{new Date(item.createdAt).toLocaleString()}</p>
