@@ -7,7 +7,7 @@ const MonthlyDuesDisplay = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize Firebase app (assuming you've already done this)
+    // Initialize Firebase app
     const db = app.firestore();
 
     // Fetch the monthly dues data from Firestore
@@ -57,16 +57,21 @@ const MonthlyDuesDisplay = () => {
   }
 
   return (
-    <div className="container px-4 pb-8 pt-[100px] mx-auto">
+    <div className="container px-4 pb-8 pt-[100px] mx-auto overflow-x-auto">
       <table className="w-full border-collapse table-auto">
         <thead>
           <tr>
+<<<<<<< HEAD
             <th className="px-4 py-2 font-medium text-gray-600 border border-gray-500">User</th>
             <th className="px-4 py-2 font-medium text-gray-600 border border-gray-500">Address</th>
+=======
+            <th className="px-2 py-2 font-medium text-gray-600 border border-gray-500 md:px-4">User</th>
+            <th className="px-2 py-2 font-medium text-gray-600 border border-gray-500 md:px-4">Address</th>
+>>>>>>> 57d864cded357d9e5bd9786250fb5a4874f38033
             {[...Array(12)].map((_, i) => {
               const month = getMonthName(i + 1);
               return (
-                <th key={i} className="px-4 py-2 font-medium text-gray-600 border border-gray-500">
+                <th key={i} className="px-2 py-2 font-medium text-gray-600 border border-gray-500 md:px-4">
                   {month}
                 </th>
               );
@@ -76,13 +81,22 @@ const MonthlyDuesDisplay = () => {
         <tbody>
           {dues.map(({ id, userFullname, address, duesByDate }) => (
             <tr key={id}>
+<<<<<<< HEAD
               <td className="px-4 py-2 text-gray-600 border border-gray-500">{userFullname}</td>
               <td className="px-4 py-2 text-gray-600 border border-gray-500">{address}</td>
+=======
+              <td className="px-2 py-2 text-gray-600 border border-gray-500 md:px-4">{userFullname}</td>
+              <td className="px-2 py-2 text-gray-600 border border-gray-500 md:px-4">{address}</td>
+>>>>>>> 57d864cded357d9e5bd9786250fb5a4874f38033
               {[...Array(12)].map((_, i) => {
                 const month = getMonthName(i + 1);
                 const monthlyDue = duesByDate[month] || 0;
                 return (
+<<<<<<< HEAD
                   <td key={i} className="px-4 py-2 text-gray-600 border border-gray-500">
+=======
+                  <td key={i} className="px-2 py-2 text-gray-600 border border-gray-500 md:px-4">
+>>>>>>> 57d864cded357d9e5bd9786250fb5a4874f38033
                   ₱{monthlyDue}
                   </td>
                 );
