@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,css}"],
   mode: "jit",
@@ -17,12 +16,12 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
       },
       fontSize: {
-        xs: "6px",
-        ss: "8px",
-        sm: "10px",
-        md: "12px",
-        lg: "15px",
-        xl: "18px",
+        xs: ".375rem", // 6px
+        ss: ".5rem",  // 8px
+        sm: ".625rem", // 10px
+        md: ".75rem", // 12px
+        lg: ".9375rem", // 15px
+        xl: "1.125rem", // 18px
       },
       backgroundImage: {
         "background1": "url('src/assets/bg-1.jpg')"
