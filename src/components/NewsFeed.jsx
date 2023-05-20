@@ -19,11 +19,8 @@ const NewsFeed = () => {
   };
 
   return (
-<<<<<<< HEAD
     <div className="z-40 w-full h-screen p-8 mx-10 overflow-y-auto bg-white rounded-2xl">
-=======
     <div className="w-full p-8 mx-2 overflow-x-auto bg-white md:w-4/5 lg:w-2/3 sm:mx-6 md:mx-10 rounded-2xl drop-shadow-2xl">
->>>>>>> 57d864cded357d9e5bd9786250fb5a4874f38033
       <span className='text-2xl font-semibold font-poppins'>
         Celina Plains Imus<br/>
       </span>
@@ -39,7 +36,7 @@ const NewsFeed = () => {
           </div>
         </div>
       ))}
-
+    </div>
     </div>
   )
 }
